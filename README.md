@@ -21,7 +21,7 @@ for _, value := range list {
 ## The Experiment
 Two benchmark functions which both call `fmt.Sprint` for the targeted object. 
 One function uses the indices, the other uses the values. 
-Both iterate over a float64 slice with 100,000 (semi-random) elements. ;
+Both iterate over a float64 slice with 100,000 (semi-random) elements. 
 
 In order to neglect noise in the measurements, I decided to let it run for 30 seconds each. 
 
