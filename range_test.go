@@ -37,3 +37,33 @@ func BenchmarkIndex(b *testing.B) {
 		}
 	}
 }
+
+func BenchmarkValueMultiple(b *testing.B) {
+	fill()
+	b.ResetTimer()
+
+	for i := 0; i < b.N; i++ {
+		for index := range list {
+			fmt.Sprint(list[index])
+			fmt.Sprint(list[index])
+			fmt.Sprint(list[index])
+			fmt.Sprint(list[index])
+			fmt.Sprint(list[index])
+		}
+	}
+}
+
+func BenchmarkIndexMultiple(b *testing.B) {
+	fill()
+	b.ResetTimer()
+
+	for i := 0; i < b.N; i++ {
+		for _, value := range list {
+			fmt.Sprint(value)
+			fmt.Sprint(value)
+			fmt.Sprint(value)
+			fmt.Sprint(value)
+			fmt.Sprint(value)
+		}
+	}
+}
