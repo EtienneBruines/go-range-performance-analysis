@@ -8,13 +8,15 @@ Ever wondered which is faster?
 ```go
 for index := range list {
   fmt.Sprint(list[index])
-}```
+}
+```
 
 ### Method B
 ```go
 for _, value := range list {
   fmt.Sprint(value)
-}```
+}
+```
 
 ## The Experiment
 Two benchmark functions which both call `fmt.Sprint` for the targeted object. 
