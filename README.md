@@ -63,3 +63,26 @@ BenchmarkIndexMultiple       200         260632222 ns/op
 BenchmarkValueMultiple       200         257902368 ns/op
 BenchmarkIndexMultiple       200         263454376 ns/op
 ```
+
+# Bigger objects
+What if we did the same, but with something bigger than `float64`, would the results be the same?
+
+## The Experiment
+We now using a "large" struct wich contains a byte-array with 1024 elements, a string and a pointer. It's about as large
+as a "real-world" object becomes. 
+
+## The Results
+There does seem a small preference for using the `value` method for large objects, and this effect becomes more and
+more for each time you use the value. 
+
+### Single-Use Results
+```
+BenchmarkLargeValue          500         119525177 ns/op
+BenchmarkLargeIndex          500         121542064 ns/op
+```
+
+### Multi-Use Results
+```
+BenchmarkLargeValueMultiple          100         595559257 ns/op
+BenchmarkLargeIndexMultiple          100         605452296 ns/op
+```
